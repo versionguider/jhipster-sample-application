@@ -1,0 +1,53 @@
+{
+  "name": "PromotionDistribution",
+  "fields": [
+    {
+      "fieldName": "promotionDistributionId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "explanation",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "branch",
+      "otherEntityRelationshipName": "promotionDistribution",
+      "relationshipName": "branch",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "district",
+      "otherEntityRelationshipName": "promotionDistribution",
+      "relationshipName": "district",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "promotionDefinition",
+      "otherEntityRelationshipName": "branch",
+      "relationshipName": "promotionDefinition",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200529130802",
+  "entityTableName": "promotion_distribution",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

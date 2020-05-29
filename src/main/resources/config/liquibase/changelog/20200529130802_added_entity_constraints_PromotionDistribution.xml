@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity PromotionDistribution.
+    -->
+    <changeSet id="20200529130802-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="promotion_distribution_id"
+                                 baseTableName="promotion_distribution_branch"
+                                 constraintName="fk_promotion_distribution_branch_promotion_distribution_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="promotion_distribution"/>
+
+        <addForeignKeyConstraint baseColumnNames="branch_id"
+                                 baseTableName="promotion_distribution_branch"
+                                 constraintName="fk_promotion_distribution_branch_branch_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="branch"/>
+        
+        <addForeignKeyConstraint baseColumnNames="promotion_distribution_id"
+                                 baseTableName="promotion_distribution_district"
+                                 constraintName="fk_promotion_distribution_district_promotion_distribution_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="promotion_distribution"/>
+
+        <addForeignKeyConstraint baseColumnNames="district_id"
+                                 baseTableName="promotion_distribution_district"
+                                 constraintName="fk_promotion_distribution_district_district_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="district"/>
+        
+        <addForeignKeyConstraint baseColumnNames="promotion_definition_id"
+                                 baseTableName="promotion_distribution"
+                                 constraintName="fk_promotion_distribution_promotion_definition_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="promotion_definition"/>
+
+    </changeSet>
+</databaseChangeLog>

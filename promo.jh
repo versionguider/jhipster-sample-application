@@ -1,0 +1,28 @@
+entity Branch {
+	code Integer,
+    explanation String
+}
+
+entity District{
+	code Integer,
+	explanation String
+}
+
+entity PromotionDefinition {
+	promotionDefinitionId Integer,
+    promoCode String
+}
+entity PromotionDistribution {
+	promotionDistributionId Integer,
+    name String,
+    explanation String
+}
+
+relationship ManyToMany {
+	PromotionDistribution{branch} to Branch{promotionDistribution},
+    PromotionDistribution{district} to District{promotionDistribution}
+}
+
+relationship OneToMany {
+	PromotionDefinition{branch} to PromotionDistribution
+}

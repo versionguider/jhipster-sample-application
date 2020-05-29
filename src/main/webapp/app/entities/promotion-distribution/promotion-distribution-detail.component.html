@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="promotionDistribution">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.promotionDistribution.detail.title">Promotion Distribution</span> {{ promotionDistribution.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.promotionDistribution.promotionDistributionId">Promotion Distribution Id</span></dt>
+                <dd>
+                    <span>{{ promotionDistribution.promotionDistributionId }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.promotionDistribution.name">Name</span></dt>
+                <dd>
+                    <span>{{ promotionDistribution.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.promotionDistribution.explanation">Explanation</span></dt>
+                <dd>
+                    <span>{{ promotionDistribution.explanation }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.promotionDistribution.branch">Branch</span></dt>
+                <dd>
+                    <span *ngFor="let branch of promotionDistribution.branches; let last = last">
+                        <a [routerLink]="['/branch', branch?.id, 'view']">{{ branch.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.promotionDistribution.district">District</span></dt>
+                <dd>
+                    <span *ngFor="let district of promotionDistribution.districts; let last = last">
+                        <a [routerLink]="['/district', district?.id, 'view']">{{ district.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.promotionDistribution.promotionDefinition">Promotion Definition</span></dt>
+                <dd>
+                    <div *ngIf="promotionDistribution.promotionDefinition">
+                        <a [routerLink]="['/promotion-definition', promotionDistribution.promotionDefinition?.id, 'view']">{{ promotionDistribution.promotionDefinition?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/promotion-distribution', promotionDistribution.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

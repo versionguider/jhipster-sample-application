@@ -1,0 +1,32 @@
+{
+  "name": "PromotionDefinition",
+  "fields": [
+    {
+      "fieldName": "promotionDefinitionId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "promoCode",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "promotionDistribution",
+      "otherEntityRelationshipName": "promotionDefinition",
+      "relationshipName": "branch"
+    }
+  ],
+  "changelogDate": "20200529130702",
+  "entityTableName": "promotion_definition",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-promotion-distribution-heading" jhiTranslate="jhipsterSampleApplicationApp.promotionDistribution.home.createOrEditLabel">Create or edit a Promotion Distribution</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.promotionDistribution.promotionDistributionId" for="field_promotionDistributionId">Promotion Distribution Id</label>
+                    <input type="number" class="form-control" name="promotionDistributionId" id="field_promotionDistributionId"
+                           formControlName="promotionDistributionId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.promotionDistribution.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.promotionDistribution.explanation" for="field_explanation">Explanation</label>
+                    <input type="text" class="form-control" name="explanation" id="field_explanation"
+                           formControlName="explanation"/>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="jhipsterSampleApplicationApp.promotionDistribution.branch" for="field_branches">Branch</label>
+                    <select class="form-control" id="field_branches" multiple name="branches" formControlName="branches">
+                        <option [ngValue]="getSelected(editForm.get('branches')!.value, branchOption)" *ngFor="let branchOption of branches; trackBy: trackById">{{ branchOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="jhipsterSampleApplicationApp.promotionDistribution.district" for="field_districts">District</label>
+                    <select class="form-control" id="field_districts" multiple name="districts" formControlName="districts">
+                        <option [ngValue]="getSelected(editForm.get('districts')!.value, districtOption)" *ngFor="let districtOption of districts; trackBy: trackById">{{ districtOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.promotionDistribution.promotionDefinition" for="field_promotionDefinition">Promotion Definition</label>
+                    <select class="form-control" id="field_promotionDefinition" name="promotionDefinition" formControlName="promotionDefinition">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="promotionDefinitionOption.id === editForm.get('promotionDefinition')!.value?.id ? editForm.get('promotionDefinition')!.value : promotionDefinitionOption" *ngFor="let promotionDefinitionOption of promotiondefinitions; trackBy: trackById">{{ promotionDefinitionOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

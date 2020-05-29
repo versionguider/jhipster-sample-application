@@ -1,0 +1,24 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "promotionDefinition": {
+      "home": {
+        "title": "Promotion Definitions",
+        "createLabel": "Create a new Promotion Definition",
+        "createOrEditLabel": "Create or edit a Promotion Definition",
+        "notFound": "No Promotion Definitions found"
+      },
+      "created": "A new Promotion Definition is created with identifier {{ param }}",
+      "updated": "A Promotion Definition is updated with identifier {{ param }}",
+      "deleted": "A Promotion Definition is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Promotion Definition {{ id }}?"
+      },
+      "detail": {
+        "title": "Promotion Definition"
+      },
+      "promotionDefinitionId": "Promotion Definition Id",
+      "promoCode": "Promo Code",
+      "branch": "Branch"
+    }
+  }
+}
